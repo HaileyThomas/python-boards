@@ -6,20 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Python Boards</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alice&family=Fredoka+One&family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class="wrapper">
     <header>
-      <h1>
-        <a href="/">Python Boards</a>
-      </h1>
+      <div class="header-container">
+        <img src="/images/snake1.png" alt="cartoon snake" />
+        <h1>
+          Python Boards <a href="/"><ion-icon name="home-outline"></ion-icon></a>
+        </h1>
+      </div>
       <nav>
         {% if loggedIn == True %}
-        <a href="/dashboard">dashboard</a>
+        <a href="/dashboard"><ion-icon name="person-outline"></ion-icon> dashboard</a>
         <button id="logout" class="btn-no-style">logout</button>
         {% else %}
-        <a href="/login">login</a>
+        <a href="/login"><ion-icon name="log-in-outline"></ion-icon> login</a>
         {% endif %}
       </nav>
     </header>
@@ -27,13 +33,17 @@
       {% block body %}{% endblock %}
     </main>
     <footer>
-      Thanks for visiting!
+      <p>
+        &copy Hailey Thomas | view source code <a href="https://github.com/HaileyThomas/python-boards" target="black">here</a>
+      </p>
     </footer>
   </div>
   
   {% if loggedIn %}
   <script src="/javascript/logout.js"></script>
   {% endif %}
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
