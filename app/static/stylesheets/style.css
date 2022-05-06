@@ -158,6 +158,27 @@ h2 {
   padding: 10px;
 }
 
+.create-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-img-container img {
+  width: 250px;
+}
+
+.create-form-container {
+  background-color: var(--orange);
+  border-radius: 10px;
+  box-shadow:
+       inset 0 -3em 3em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(255,255,255),
+             0.3em 0.3em 1em rgba(0,0,0,0.3);
+  padding: 10px;
+  margin: 10px;
+}
+
 .btn-no-style {
   background: none;
   border: none;

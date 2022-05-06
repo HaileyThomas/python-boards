@@ -2,19 +2,26 @@
 
 {% block body %}
 <section>
-  <h2>Create New Post</h2>
+  <div class="create-container">
+    <div class="create-img-container">
+      <img src="/images/snakelight.png" alt="cartoon snake with lightbulb" />
+    </div>
+    <div class="create-form-container">
+      <h2>Create New Post</h2>
 
-  <form class="new-post-form">
-    <div>
-      <label for="post-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
+      <form class="new-post-form">
+        <div>
+          <label for="post-title">Title</label>
+          <input type="text" id="post-title" name="post-title" />
+        </div>
+        <div>
+          <label for="post-text">Post</label>
+          <textarea id="post-text" name="post-text" rows="3" cols="40"></textarea>
+        </div>
+        <button type="submit" class="btn">Create Post</button>
+      </form>
     </div>
-    <div>
-      <label for="post-url">Link</label>
-      <input id="post-url" name="post-url" />
-    </div>
-    <button type="submit" class="btn">Create</button>
-  </form>
+  </div>
 </section>
 
 {% if posts|length > 0 %}

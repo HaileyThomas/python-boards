@@ -9,7 +9,7 @@
   <form class="edit-post-form">
     <div>
       <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{post.post_url}})</span>
+      <textarea id="post-text" name="post-text" rows="3" cols="40">({{post.post_text}})</textarea>
     </div>
     <div>
       {{post.vote_count}} point(s) by you on {{post.created_at}}
