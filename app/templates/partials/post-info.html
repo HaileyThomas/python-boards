@@ -1,13 +1,13 @@
 <article class="post">
-  <div class="title">
-    <h2>{{post.title}}</h2>
+  <div class="title-container">
+    <h2 class="post-title">{{post.title}}</h2>
   </div>
-  <div class="post-text">
-    <p>({{post.post_text}})</p>
+  <div class="post-text-container">
+    <p class="post-text">{{post.post_text}}</p>
   </div>
   <div class="meta">
-    {{post.vote_count}} point(s) by {{post.user.username}} on {{post.created_at}}
+    {{post.vote_count}} {{post.vote_count|format_plural('upvote')}} by <b>{{post.user.username}}</b> on {{post.created_at|format_date}}
     |
-    <a href="/post/{{post.id}}">{{post.comments|length}} comment(s)</a>
+    <a href="/post/{{post.id}}" class="post-link">{{post.comments|length}} {{post.comments|length|format_plural('comment')}}</a>
   </div>
 </article>

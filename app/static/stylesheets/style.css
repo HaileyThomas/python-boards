@@ -35,7 +35,7 @@ a:hover {
 }
 
 button {
-  background-color: var(--green);
+  background-color: var(--darkgreen);
   border: 0;
   padding: 10px;
   color: var(--black);
@@ -46,7 +46,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--pink);
+  background-color: var(--green);
 }
 
 .post-list {
@@ -62,7 +62,7 @@ textarea, input {
 
 textarea:focus, input:focus {
   outline: none;
-  border: 1px solid var(--blue);
+  border: 1px solid var(--green);
 }
 
 textarea {
@@ -135,7 +135,7 @@ h2 {
 }
 
 .login-container {
-  background-color: var(--blue);
+  background-color: var(--green);
   border-radius: 10px;
   box-shadow:
        inset 0 -3em 3em rgba(0,0,0,0.1),
@@ -149,7 +149,7 @@ h2 {
 }
 
 .signup-container {
-  background-color: var(--orange);
+  background-color: var(--green);
   border-radius: 10px;
   box-shadow:
        inset 0 -3em 3em rgba(0,0,0,0.1),
@@ -169,7 +169,7 @@ h2 {
 }
 
 .create-form-container {
-  background-color: var(--orange);
+  background-color: var(--green);
   border-radius: 10px;
   box-shadow:
        inset 0 -3em 3em rgba(0,0,0,0.1),
@@ -185,7 +185,7 @@ h2 {
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: #225ca3;
+  color: var(--darkgreen);
   font-size: 100%;
   font-weight: bold;
   transition: color .1s;
@@ -194,7 +194,7 @@ h2 {
 
 .btn-no-style:hover {
   background: none;
-  color: #3486eb;
+  color: var(--green);
 }
 
 .delete-post-btn {
@@ -206,14 +206,26 @@ h2 {
 }
 
 .post {
-  margin-bottom: 2%;
-  line-height: 150%;
+  background-color: var(--green);
+  border-radius: 10px;
+  box-shadow:
+       inset 0 -3em 3em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(255,255,255),
+             0.3em 0.3em 1em rgba(0,0,0,0.3);
+  padding: 10px;
+  margin: 15px;
 }
 
-.post .title span {
-  font-style: italic;
-  font-size: 90%;
-  color: #7d7d7d;
+.post-title {
+  text-align: left;
+}
+
+.post-text {
+  font-size: 20px;
+}
+
+.post-link:hover {
+  color: white;
 }
 
 .edit-link {
