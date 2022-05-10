@@ -241,6 +241,12 @@ h2 {
   opacity: .6;
 }
 
+.comment-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .single-post-img {
   text-align: center;
   width: 200px;

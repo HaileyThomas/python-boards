@@ -4,18 +4,22 @@
 {% include "partials/post-info.html" %}
 
 {% if loggedIn == True %}
-<div>
+<div class="comment-container">
+  <div>
   <img class="single-post-img" src="/images/snakeheart.png" alt="cartoon snake with heart" />
+  </div>
+  <div>
+    <form class="comment-form">
+      <div>
+        <textarea name="comment-body"></textarea>
+      </div>
+      <div>
+        <button type="submit">add comment</button>
+        <button type="button" class="upvote-btn">upvote</button>
+      </div>
+    </form>
+  </div>
 </div>
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
-  <div>
-    <button type="submit">add comment</button>
-    <button type="button" class="upvote-btn">upvote</button>
-  </div>
-</form>
 {% endif %}
 
 {% with comments=post.comments %}

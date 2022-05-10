@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify, session
-from app.models import User
+from app.models import User, Post, Comment, Vote
 from app.db import get_db
 import sys
 
@@ -62,3 +62,111 @@ def login():
     session['loggedIn'] = True
 
     return jsonify(id=user.id)
+
+
+@bp.route('/comments', methods=['POST'])
+def comment():
+    data = request.get_json()
+    db = get_db()
+
+    try:
+        # create a new comment
+        newComment = Comment(
+            comment_text=data['comment_text'],
+            post_id=data['post_id'],
+            user_id=session.get('user_id')
+        )
+
+        db.add(newComment)
+        db.commit()
+    except:
+        print(sys.exc_info()[0])
+
+        db.rollback()
+        return jsonify(message='Comment failed'), 500
+
+    return jsonify(id=newComment.id)
+
+
+@bp.route('/posts/upvote', methods=['PUT'])
+def upvote():
+    data = request.get_json()
+    db = get_db()
+
+    try:
+        # create a new vote
+        newVote = Vote(
+            post_id=data['post_id'],
+            user_id=session.get('user_id')
+        )
+
+        db.add(newVote)
+        db.commit()
+    except:
+        print(sys.exc_info()[0])
+
+        db.rollback()
+        return jsonify(message='Upvote failed'), 500
+
+    return '', 204
+
+
+@bp.route('/posts', methods=['POST'])
+def create():
+    data = request.get_json()
+    db = get_db()
+
+    try:
+        # create a new post
+        newPost = Post(
+            title=data['title'],
+            post_text=data['post_text'],
+            user_id=session.get('user_id')
+        )
+
+        db.add(newPost)
+        db.commit()
+    except:
+        print(sys.exc_info()[0])
+
+        db.rollback()
+        return jsonify(message='Post failed'), 500
+
+    return jsonify(id=newPost.id)
+
+
+@bp.route('/posts/<id>', methods=['PUT'])
+def update(id):
+    data = request.get_json()
+    db = get_db()
+
+    try:
+        # get post and update
+        post = db.query(Post).filter(Post.id == id).one()
+        post.post_text = data['post_text']
+
+        db.commit()
+    except:
+        print(sys.exc_info()[0])
+
+        db.rollback()
+        return jsonify(message='Post not found'), 404
+
+    return '', 204
+
+
+@bp.route('/posts/<id>', methods=['DELETE'])
+def delete(id):
+    db = get_db()
+
+    try:
+        # delete post from db
+        db.delete(db.query(Post).filter(Post.id == id). one())
+        db.commit()
+    except:
+        print(sys.exc_info()[0])
+
+        db.rollback()
+        return jsonify(message='Post not found'), 404
+
+    return '', 204
