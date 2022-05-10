@@ -4,11 +4,13 @@
 {% include "partials/post-info.html" %}
 
 {% if loggedIn == True %}
+<div>
+  <img class="single-post-img" src="/images/snakeheart.png" alt="cartoon snake with heart" />
+</div>
 <form class="comment-form">
   <div>
     <textarea name="comment-body"></textarea>
   </div>
-
   <div>
     <button type="submit">add comment</button>
     <button type="button" class="upvote-btn">upvote</button>

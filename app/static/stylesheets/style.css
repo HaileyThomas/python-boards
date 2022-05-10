@@ -8,9 +8,6 @@
   --grey: #AFAFAF;
   --green: #C0DEAC;
   --darkgreen: #597C5C;
-  --orange: #FFBC51;
-  --pink: #F398B6;
-  --blue: #4DC8D6;
 }
 
 body, html {
@@ -179,24 +176,6 @@ h2 {
   margin: 10px;
 }
 
-.btn-no-style {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  text-decoration: none;
-  color: var(--darkgreen);
-  font-size: 100%;
-  font-weight: bold;
-  transition: color .1s;
-  margin-left: 16px;
-}
-
-.btn-no-style:hover {
-  background: none;
-  color: var(--green);
-}
-
 .delete-post-btn {
   background-color: #d41414;
 }
@@ -244,6 +223,7 @@ h2 {
 
 .comment-form {
   margin-bottom: 5%;
+  text-align: center;
 }
 
 .comment {
@@ -252,7 +232,7 @@ h2 {
 }
 
 .comment:nth-child(odd) {
-  background-color: #fff5eb;
+  background-color: var(--green);
 }
 
 .comment .meta {
@@ -261,12 +241,36 @@ h2 {
   opacity: .6;
 }
 
+.single-post-img {
+  text-align: center;
+  width: 200px;
+}
+
 .new-post-form input {
   width: 300px;
 }
 
 .edit-post-form {
   margin-bottom: 5%;
+}
+
+.btn-no-style {
+  background-color: var(--grey);
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--darkgreen);
+  font-weight: bold;
+  transition: color .1s;
+  margin-left: 16px;
+  font-family: 'Alice', serif;
+  font-size: 20px;
+}
+
+.btn-no-style:hover {
+  color: var(--green);
+  background-color: var(--grey);
 }
 
 footer {
